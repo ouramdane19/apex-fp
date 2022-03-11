@@ -11,6 +11,7 @@ Builds an `OptionalDouble`.
 Returns `true` if a value is present.
 
 **Signature**
+
 ```
 Boolean isPresent()
 ```
@@ -20,6 +21,7 @@ Boolean isPresent()
 Returns the value when it is present. Throws a `System.NoSuchElementException` when it is not.
 
 **Signature**
+
 ```
 Boolean isPresent()
 ```
@@ -28,6 +30,7 @@ Boolean isPresent()
 
 Returns a value when it is present, or `other` when it is not.
 **Signature**
+
 ```
 SObject orElse(SObject other)
 ```
@@ -37,8 +40,7 @@ SObject orElse(SObject other)
 Returns a value when it is present, or throws `e` when it is not.
 
 **Signature**
+
 ```
 SObject orElseThrow(Exception e)
 ```
-
-

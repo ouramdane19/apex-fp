@@ -1,29 +1,29 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Apex FP',
-  tagline: 'Functional programming for Salesforce Apex',
-  url: 'https://your-docusaurus-test-site.com',
-  baseUrl: '/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
-  organizationName: 'apex-fp', // Usually your GitHub org/user name.
-  projectName: 'apex-fp', // Usually your repo name.
+  title: "Apex FP",
+  tagline: "Functional programming for Salesforce Apex",
+  url: "https://your-docusaurus-test-site.com",
+  baseUrl: "/",
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
+  favicon: "img/favicon.ico",
+  organizationName: "apex-fp", // Usually your GitHub org/user name.
+  projectName: "apex-fp", // Usually your repo name.
 
   presets: [
     [
-      '@docusaurus/preset-classic',
+      "@docusaurus/preset-classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          routeBasePath: '/'
+          sidebarPath: require.resolve("./sidebars.js"),
+          routeBasePath: "/",
           // Please change this to your repo.
           // editUrl: 'https://github.com/ipavlic/apex-fp/edit/main/website/',
         },
@@ -34,7 +34,7 @@ const config = {
         //     'https://github.com/ipavlic/apex-fp/edit/main/website/blog/',
         // },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/css/custom.css"),
         },
       }),
     ],
@@ -44,10 +44,10 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Apex FP',
+        title: "Apex FP",
         logo: {
-          alt: 'Apex FP Logo',
-          src: 'img/logo.svg',
+          alt: "Apex FP Logo",
+          src: "img/logo.svg",
         },
         items: [
           // {
@@ -58,10 +58,10 @@ const config = {
           // },
           // {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/ipavlic/apex-fp',
-            className: 'header-github-link',
-            label: 'GitHub',
-            position: 'right',
+            href: "https://github.com/ipavlic/apex-fp",
+            className: "header-github-link",
+            label: "GitHub",
+            position: "right",
           },
         ],
       },
@@ -111,21 +111,21 @@ const config = {
       //   copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
       // },
       prism: {
-        additionalLanguages: ['apex'],
+        additionalLanguages: ["apex"],
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        defaultLanguage: 'apex'
+        defaultLanguage: "apex",
       },
       algolia: {
-        appId: 'BH4D9OD16A',
-        apiKey: '74336c94033d588be178a3757c5bc716',
-        indexName: 'apexfp',
-        contextualSearch: false
+        appId: "BH4D9OD16A",
+        apiKey: "74336c94033d588be178a3757c5bc716",
+        indexName: "apexfp",
+        contextualSearch: false,
       },
       gtag: {
-        trackingID: 'G-PNTCNPSG2Z',
-        anonymizeIP: true
-      }
+        trackingID: "G-PNTCNPSG2Z",
+        anonymizeIP: true,
+      },
     }),
 };
 

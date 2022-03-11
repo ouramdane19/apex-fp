@@ -7,6 +7,7 @@ sidebar_position: 3
 ## sum
 
 **Signature**
+
 ```
 Decimal sum()
 ```
@@ -14,6 +15,7 @@ Decimal sum()
 Sums non-null `Decimal` values if they exist. Returns an empty optional if no such values exist.
 
 **Example**
+
 ```
 OptionalDecimal total = new DecimalCollection(new List<Decimal>){1, 2, 3}).sum(); // 6
 ```
@@ -21,6 +23,7 @@ OptionalDecimal total = new DecimalCollection(new List<Decimal>){1, 2, 3}).sum()
 ## max
 
 **Signature**
+
 ```
 OptionalDecimal max()
 ```
@@ -28,6 +31,7 @@ OptionalDecimal max()
 Returns greatest non-null `Decimal` value if it exists. Returns an empty optional if no such values exist.
 
 **Example**
+
 ```
 OptionalDecimal max = new DecimalCollection(new List<Decimal>){1, 2, 3}).max(); // 3
 ```
@@ -35,6 +39,7 @@ OptionalDecimal max = new DecimalCollection(new List<Decimal>){1, 2, 3}).max(); 
 ## min
 
 **Signature**
+
 ```
 OptionalDecimal min()
 ```
@@ -42,6 +47,7 @@ OptionalDecimal min()
 Returns smallest non-null `Decimal` value if it exists. Returns an empty optional if no such values exist.
 
 **Example**
+
 ```
 OptionalDecimal min = new DecimalCollection(new List<Decimal>){1, 2, 3}).min(); // 1
 ```
@@ -51,11 +57,13 @@ OptionalDecimal min = new DecimalCollection(new List<Decimal>){1, 2, 3}).min(); 
 Averages non-null `Decimal` values if they exist. Returns an empty optional if no such values exist.
 
 **Signature**
+
 ```
 OptionalDecimal average()
 ```
 
 **Example**
+
 ```
 OptionalDecimal average = new DecimalCollection(new List<Decimal>){1, 2, 3}).average(); // 2
 ```

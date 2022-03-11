@@ -8,7 +8,7 @@ Returns a new [`AssignToSObject`](AssignToSObject) function.
 
 ## MapTo
 
-Returns a new [`MapToSObject`](MapToSObject) or a [`MapToObject`](MapToObject) function. 
+Returns a new [`MapToSObject`](MapToSObject) or a [`MapToObject`](MapToObject) function.
 
 ## Match
 
@@ -25,6 +25,7 @@ RecordFieldsMatch recordFields(SObject prototype)
 ```
 
 **Example**
+
 ```
 RecordFieldsMatch isMatch = Match.recordFields(new Account{Name = 'Foo'});
 isMatch.call(new Account{Name = 'Foo', Description = 'Some description'}); // true
@@ -41,7 +42,9 @@ Starts the construction of a field criteria matching function by defining a fiel
 IncompleteFieldsMatch field(Schema.SObjectField field)
 IncompleteFieldsMatch field(String fieldPath)
 ```
+
 **Example**
+
 ```
 Match.field(Opportunity.Amount).lessThan(10000)
 Match.field('Parent.Id').equals(accountId);

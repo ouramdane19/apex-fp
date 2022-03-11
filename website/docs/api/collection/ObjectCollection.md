@@ -11,6 +11,7 @@ List<Object> asList(Type listType)
 ```
 
 **Example**
+
 ```apex title="Mapping to objects with MapTo function factory"
 List<OpportunityAction> actions = (List<OpportunityAction>) SObjectCollection.of(opps)
     .mapAll(

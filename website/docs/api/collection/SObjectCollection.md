@@ -49,6 +49,7 @@ Returns a collection view of those records that are not equal in the `other` col
 ```
 SObjectCollection difference(SObjectCollection other, Set<Schema.SObjectField> comparisonFields)
 ```
+
 ## filter
 
 Returns a `SObjectCollection` view of records that satisfied `predicate`.
@@ -58,6 +59,7 @@ Returns a `SObjectCollection` view of records that satisfied `predicate`.
 ```
 SObjectCollection filter(SObjectPredicate predicate)
 ```
+
 Two predicates are provided out of the box, `FieldsMatch` and `RecordMatch`. They are instantiated through factory methods on `Match`.
 
 **Example**
@@ -74,7 +76,7 @@ SObjectCollection filtered = accountCollection.filter(Fn.Match.field(Account.Nam
 
 ## remove
 
-`remove` works just like `filter`, but records which match a predicate are *removed* from the collection view instead of kept.
+`remove` works just like `filter`, but records which match a predicate are _removed_ from the collection view instead of kept.
 
 ## find
 
@@ -91,11 +93,13 @@ OptionalSObject find(SObjectPredicate predicate)
 Invokes provided `SObjectFunction` on each element of the collection and returns the current collection.
 
 **Signature**
+
 ```
 SObjectCollection forEach(SObjectFunction fn)
 ```
 
 **Example**
+
 ```
 SObjectCollection.of(accounts).forEach(Fn.Debug);
 ```
@@ -201,7 +205,9 @@ List<SObject> objects = fooAccounts;
 // since fooAccounts points to a returned list of SObjects, it can be anything!
 System.assert(objects instanceof List<Opportunity>);
 ```
+
 When `listType` is provided, map values are properly typed lists, and there are no unexpected results with `instanceof`.
+
 ```apex title="Grouping with a listType provided"
 accountsByName = c.groupBystrings(Account.Name, List<Account>.class);
 fooAccounts = accountsByName.get('Foo');
@@ -210,6 +216,7 @@ objects = fooAccounts;
 System.assert(!(objects instanceof List<Opportunity>));
 System.assert(objects instanceof List<Account>);
 ```
+
 :::
 
 ### groupByBooleans
@@ -217,6 +224,7 @@ System.assert(objects instanceof List<Account>);
 Groups records by `Boolean` values at `field` or `apiFieldName`, with an optional strong `listType`.
 
 **Signature**
+
 ```
 Map<Boolean, List<SObject>> groupByBooleans(String apiFieldName, Type listType)
 Map<Boolean, List<SObject>> groupByBooleans(String apiFieldName)
@@ -229,6 +237,7 @@ Map<Boolean, List<SObject>> groupByBooleans(Schema.SObjectField field)
 Groups records by `Date` values at `field` or `apiFieldName`, with an optional strong `listType`.
 
 **Signature**
+
 ```
 Map<Date, List<SObject>> groupByDates(String apiFieldName, Type listType)
 Map<Date, List<SObject>> groupByDates(String apiFieldName)
@@ -241,6 +250,7 @@ Map<Date, List<SObject>> groupByBooleans(Schema.SObjectField field)
 Groups records by `Datetime` values at `field` or `apiFieldName`, with an optional strong `listType`.
 
 **Signature**
+
 ```
 Map<Datetime, List<SObject>> groupByDatetimes(String apiFieldName, Type listType)
 Map<Datetime, List<SObject>> groupByDatetimes(String apiFieldName)
@@ -253,6 +263,7 @@ Map<Datetime, List<SObject>> groupByDatetimes(Schema.SObjectField field)
 Groups records by numeric values at `field` or `apiFieldName`, with an optional strong `listType`.
 
 **Signature**
+
 ```
 Map<Decimal, List<SObject>> groupByDecimals(String apiFieldName, Type listType)
 Map<Decimal, List<SObject>> groupByDecimals(String apiFieldName)
@@ -265,6 +276,7 @@ Map<Decimal, List<SObject>> groupByDecimals(Schema.SObjectField field)
 Groups records by `Id` values at `field` or `apiFieldName`, with an optional strong `listType`.
 
 **Signature**
+
 ```
 Map<Id, List<SObject>> groupByIds(String apiFieldName, Type listType)
 Map<Id, List<SObject>> groupByIds(String apiFieldName)
@@ -277,6 +289,7 @@ Map<Id, List<SObject>> groupByIds(Schema.SObjectField field)
 Groups records by `String` values at `field` or `apiFieldName`, with an optional strong `listType`.
 
 **Signature**
+
 ```
 Map<String, List<SObject>> groupByStrings(String apiFieldName, Type listType)
 Map<String, List<SObject>> groupByStrings(String apiFieldName)
@@ -289,6 +302,7 @@ Map<String, List<SObject>> groupByStrings(Schema.SObjectField field)
 Returns a new `SObjectCollection` view of the collection which keeps just the specified `fields`, discarding others. Helps reduce overwriting potential for concurrent updates when locking is not an option.
 
 **Signature**
+
 ```
 SObjectCollection pick(List<Schema.SObjectField> fields)
 SObjectCollection pick(Set<Schema.SObjectField> fields)
@@ -315,12 +329,14 @@ For large data volumes, consider streaming implementations or custom written fun
 :::
 
 **Signature**
+
 ```
 SObjectCollection mapAll(SObjectToSObjectFunction fn)
 ObjectCollection mapAll(ObjectToSObjectFunction fn)
 ```
 
 **Example**
+
 ```apex title="Mapping to records with MapTo function factory"
 List<Task> followUpTasks = SObjectCollection.of(opps)
     .mapAll(
@@ -363,6 +379,7 @@ List<OpportunityAction> actions = (List<OpportunityAction>) SObjectCollection.of
 Returns a new `SObjectCollection` view formed by mapping those view elements that satisfy `predicate` with function `fn`, and keeping those that do not unchanged.
 
 **Signature**
+
 ```
 SObjectCollection mapSome(SObjectPredicate predicate, SObjectToSObjectFunction fn)
 ```
@@ -392,6 +409,7 @@ SObjectCollection.of(opps).mapSome(Fn.Match.field('Amount').gt(120), new DoubleA
 Maps a numeric field at `field` or `relation` to a `DecimalCollection`. This is similar to `pluckDecimals`, but unlike a raw `List<Decimal>` returns a `DecimalCollection` which provides further functions.
 
 **Signature**
+
 ```
 DecimalCollection mapToDecimal(Schema.SObjectField field)
 DecimalCollection mapToDecimal(String relation)
@@ -408,8 +426,8 @@ DoubleCollection mapToDouble(Schema.SObjectField field)
 DoubleCollection mapToDouble(String relation)
 ```
 
-
 **Example**
+
 ```
 List<Opportunity> opps = new List<Opportunity>{
     new Opportunity(Amount = 100),
@@ -442,7 +460,7 @@ System.debug(objects instanceof List<Account>); // true
 System.debug(objects instanceof List<Opportunity>); // true
 ```
 
-`asList()` and `asSet()` on `SObjectCollection` return a raw `List<SObject>` and `Set<SObject>`. This is more convenient because the type does not need to be provided, and a cast is  not required in either case, but `instanceof` can provide unexpected results.
+`asList()` and `asSet()` on `SObjectCollection` return a raw `List<SObject>` and `Set<SObject>`. This is more convenient because the type does not need to be provided, and a cast is not required in either case, but `instanceof` can provide unexpected results.
 A concrete type of the list can be passed in as well. When this is done, the returned `List` or `Set` are of the correct concrete type instead of generic `SObject` collection type:
 
 ```
@@ -452,15 +470,18 @@ List<Account> filteredAccounts = accountCollection.asList();
 List<Account> filteredAccounts = accountCollection.asList(List<Account>.class);
 // List<Account> returned!
 ```
+
 :::
 
 **Signature**
+
 ```
 List<SObject> asList()
 List<SObject> asList(Type listType)
 ```
 
 **Example**
+
 ```
 List<Opportunity> largeOpportunities = SObjectCollection.of(opportunities).asList(); // works, but instanceof can provide unexpected results
 List<Opportunity> largeOpportunities = SObjectCollection.of(opportunities).asList(List<Opportunity>.class); // always works
@@ -471,6 +492,7 @@ List<Opportunity> largeOpportunities = SObjectCollection.of(opportunities).asLis
 Returns a `Set` of records in the collection, either as a raw `Set<SObject>`, or as a `Set<T>` where `T` is a “subclass“ of `SObject`.
 
 **Signature**
+
 ```
 List<SObject> asSet()
 List<SObject> asSet(Type listType)
@@ -486,14 +508,17 @@ Returns a grouping of records by their `Id`s, either as a raw `Map<Id, SObject>`
 
 :::caution
 We can assign to a raw `Map<Id, SObject>` directly:
+
 ```
 Map<Id, SObject> recordMap = SObjectCollection.of(accounts).asMap(); // Works!
 ```
+
 However, to assign to a `Map<Id, T>`, where `T` is a “subclass“ of `SObject`, we have to both cast and provide the correct concrete `mapType`.
 
 ```
 Map<Id, Account> recordMap = (Map<Id, Account>) SObjectCollection.of(accounts).asMap(Map<Id, Account>.class);
 ```
+
 That’s because unlike `List<SObject>` and `Set<SObject>` which can be assigned to a `List<T>` and a `Set<T>` respectively, a `Map<Id, SObject>` cannot be directly assigned to a `Map<Id, T>`, where `T` is a “subclass“ of `SObject`.
 
 ```
@@ -501,9 +526,11 @@ List<Account> accountList = SObjectCollection.of(accounts).asList() // works!
 Set<Account> accountSet = SObjectCollection.of(accounts).asSet() // works!
 Map<Id, Account> accountsById = SObjectCollection.of(accounts).asMap() // DOES NOT WORK!!!
 ```
+
 :::
 
 **Signature**
+
 ```
 Map<Id, SObject> asMap()
 Map<Id, SObject> asMap(Type mapType)

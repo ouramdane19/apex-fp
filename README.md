@@ -33,6 +33,7 @@ Map<Id, List<Account>> accountsByParentId = SObjectCollection.of(accounts).group
 ```apex
 Decimal averageOpportunityValue = SObjectCollection.of(opportunities).mapToDecimal(Opportunity.Amount).average();
 ```
+
 Find more examples <a href="https://apexfp.org/examples">in the documentation</a>.
 
 ## Deploy to Salesforce
