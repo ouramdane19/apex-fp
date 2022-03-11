@@ -4,9 +4,10 @@ Implements [`SObjectFunction`](SObjectFunction), and assigns values to the recor
 
 ## setField
 
-Defines the value of a field. 
+Defines the value of a field.
 
 **Signature**
+
 ```
 AssignToSObject setField(String targetFieldName, Object value)
 AssignToSObject setField(Schema.SObjectField field, Object value)
@@ -17,6 +18,7 @@ AssignToSObject setField(Schema.SObjectField field, Object value)
 Defines the value of multiple fields.
 
 **Signature**
+
 ```
 AssignToSObject setFields(Map<Schema.SObjectField, Object> fieldValues)
 AssignToSObject setFields(SObject prototype)
@@ -27,6 +29,7 @@ AssignToSObject setFields(SObject prototype)
 Assigns the defined values to `record`.
 
 **Signature**
+
 ```
 void call(SObject record)
 ```

@@ -7,19 +7,23 @@
 Defines an equality comparison condition for the current field.
 
 **Signature**
+
 ```
 FieldsMatch equals(Object value)
 ```
 
 **Signature**
+
 ```
 FieldsMatch eq(Object value)
 ```
+
 ## notEquals (alias neq)
 
 Defines an inequality comparison condition for the current field.
 
 **Signature**
+
 ```
 FieldsMatch notEquals(Object value)
 ```
@@ -29,6 +33,7 @@ FieldsMatch notEquals(Object value)
 Defines a less than comparison condition for the current field.
 
 **Signature**
+
 ```
 FieldsMatch lessThan(Object value)
 ```
@@ -38,6 +43,7 @@ FieldsMatch lessThan(Object value)
 Defines a less than or equals condition for the current field.
 
 **Signature**
+
 ```
 FieldsMatch lessThanOrEquals(Object value)
 ```
@@ -47,6 +53,7 @@ FieldsMatch lessThanOrEquals(Object value)
 Defines a greater than condition for the current field.
 
 **Signature**
+
 ```
 FieldsMatch greaterThan(Object value)
 ```
@@ -56,6 +63,7 @@ FieldsMatch greaterThan(Object value)
 Defines a greater than or equals condition for the current field.
 
 **Signature**
+
 ```
 FieldsMatch greaterThanOrEquals(Object value)
 ```
@@ -65,6 +73,7 @@ FieldsMatch greaterThanOrEquals(Object value)
 Defines a non-null condition for the current field.
 
 **Signature**
+
 ```
 FieldsMatch hasValue()
 ```
@@ -74,6 +83,7 @@ FieldsMatch hasValue()
 Defines a set membership condition for the current field. `value` has to be a `Set<T>`, where `T` is a `Boolean`, `Date`, `Datetime`, `Decimal`, `Double`, `Id`, `Integer`, `Long` or `String`. **Other types are not supported and will throw an exception**.
 
 **Signature**
+
 ```
 FieldsMatch isIn(Object value)
 ```
@@ -81,6 +91,7 @@ FieldsMatch isIn(Object value)
 ## isNotIn (alias `ntIn)
 
 **Signature**
+
 ```
 FieldsMatch isNotIn(Object value)
 ```

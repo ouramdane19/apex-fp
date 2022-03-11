@@ -4,11 +4,11 @@ sidebar_position: 4
 
 # SObjectStream
 
-`SObjectStream` is a lazy collection of `SObject` instances which implements `Iterator<SObject>`. 
+`SObjectStream` is a lazy collection of `SObject` instances which implements `Iterator<SObject>`.
 
 ## of
 
-Constructs an `SObjectStream` with the provided `Iterable<SObject>`. 
+Constructs an `SObjectStream` with the provided `Iterable<SObject>`.
 
 **Signature**
 
@@ -31,11 +31,12 @@ SObjectStream.of(Trigger.old);
 ```
 virtual Boolean hasNext()
 ```
+
 **Example**
 
 SObjectStream accountStream = SObjectStream.of(Trigger.new);
 while (accountStream.hasNext()) {
-	Account acc = (Account) accountStream.next();
+Account acc = (Account) accountStream.next();
 }
 
 ## next
@@ -110,6 +111,7 @@ Returns a stream consisting of the elements of this stream that do not match the
 ```
 SObjectStream remove(SObjectPredicate predicate)
 ```
+
 **Example**
 
 ## toList
@@ -117,6 +119,7 @@ SObjectStream remove(SObjectPredicate predicate)
 Collects the stream into a `List`. This consumes the stream.
 
 **Signature**
+
 ```
 List<SObject> toList()
 ```

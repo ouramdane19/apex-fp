@@ -7,11 +7,13 @@ Implements [`SObjectToObjectFunction`](SObjectToObjectFunction) and maps values 
 Constructor. Defines the `type` of the `Object` the function will map to.
 
 **Signature**
+
 ```
 MapToObject(Type type)
 ```
 
 **Example**
+
 ```
 MapToObject mapToMappingTarget = new MapToObject(MappingTarget.class);
 ```
@@ -21,11 +23,14 @@ MapToObject mapToMappingTarget = new MapToObject(MappingTarget.class);
 Defines a `target field ← source field` mapping for the function. The value of target field is set to value of source field when source record is mapped to target object.
 
 **Signature**
+
 ```
 MapToObject mapField(String targetFieldPath, String sourceFieldRelation)
 MapToObject mapField(String targetFieldPath, Schema.SObjectField sourceField)
 ```
+
 **Example**
+
 ```apex title="Field relation"
 // Opportunity opp = ...
 MappingTarget mapped = (MappingTarget) new MapToObject(MappingTarget.class) // Record will be mapped into a MappingTarget
@@ -39,7 +44,9 @@ MappingTarget mapped = (MappingTarget) new MapToObject(MappingTarget.class) // R
 	.mapField('child.field', Opportunity.Description) // Opportunity Description will be mapped into child.field on object
 	.call(opp);
 ```
+
 ## mapFields
+
 Defines multiple field mappings with a map. The values of target fields are set to values of source fields when source record is mapped to target. Source fields can be provided as relation paths or fields.
 
 ```
@@ -48,6 +55,7 @@ MapToObject mapFields(Map<String, Schema.SObjectField> fieldMappings)
 ```
 
 **Example**
+
 ```apex title="Field relations"
 // Opportunity opp = ...
 MappingTarget mapped = (MappingTarget) new MapToObject(MappingTarget.class) // Record will be mapped into a MappingTarget
@@ -77,6 +85,7 @@ MapToObject setField(String targetFieldPath, Object value)
 ```
 
 **Example**
+
 ```
 MappingTarget mapped = (MappingTarget) new MapToObject(MappingTarget.class) // Record will be mapped into a MappingTarget
 	.setField('examplefield', 'apex-fp') // object will have examplefield property set to 'apex-fp'
@@ -92,12 +101,13 @@ MapToObject setFields(Map<Schema.SObjectField, Object> fieldValues)
 ```
 
 **Example**
+
 ```
 //Opportunity opp = ...
 Task task = (Task) new MapToObject(Task.SObjectType) // Record will be mapped into a Task
 	.setFields(
 		new Task(
-			Subject = 'Follow up', 
+			Subject = 'Follow up',
 			ActivityDate = Date.today().addDays(1)
 		)
 	) // Task will have Subject set to 'Follow up', and Activity Date set to tomorrow
@@ -106,6 +116,7 @@ Task task = (Task) new MapToObject(Task.SObjectType) // Record will be mapped in
 ```
 
 ## call
+
 ```
 Object call(SObject record)
 ```

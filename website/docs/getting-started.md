@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-slug: '/'
+slug: "/"
 ---
 
 # Getting started
@@ -38,6 +38,7 @@ List<Opportunity> largeOpportunities = SObjectCollection.of(opportunities).filte
 ```
 
 To enable functional programming, Apex FP provides three things:
+
 1. **Function interfaces**
 2. **Function factories**
 3. **Higher order functions**
@@ -51,6 +52,7 @@ public interface SObjectPredicate {
 	Boolean call(SObject record);
 }
 ```
+
 or "functions that take an `SObject` and return an `SObject`":
 
 ```apex title="apex-fp/main/classes/function/SObjectToSObjectFunction.cls"
@@ -80,6 +82,7 @@ public class SObjectCollection {
 	public SObjectCollection filter(SObjectPredicate predicate)
 }
 ```
+
 Another example is `mapAll` which accepts an `SObjectToSObjectFunction` instance and applies it to records in a collection to get new records.
 
 ```apex title="main/classes/collection/SObjectCollection.cls"

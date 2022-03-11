@@ -7,6 +7,7 @@ Implements [`SObjectPredicate`](SObjectPredicate).
 Constructs a `RecordFieldsMatch` for a given `prototype`.
 
 **Signature**
+
 ```
 public RecordFieldsMatch(sObject prototype)
 ```

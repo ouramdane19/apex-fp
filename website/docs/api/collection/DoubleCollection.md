@@ -7,6 +7,7 @@ sidebar_position: 2
 ## sum
 
 **Signature**
+
 ```
 OptionalDouble sum()
 ```
@@ -14,6 +15,7 @@ OptionalDouble sum()
 Sums non-null `Double` values if they exist. Returns an empty optional if no such values exist.
 
 **Example**
+
 ```
 OptionalDouble total = new DoubleCollection(new List<Double>){1, 2, 3}).sum(); // 6
 ```
@@ -21,6 +23,7 @@ OptionalDouble total = new DoubleCollection(new List<Double>){1, 2, 3}).sum(); /
 ## max
 
 **Signature**
+
 ```
 OptionalDouble max()
 ```
@@ -28,6 +31,7 @@ OptionalDouble max()
 Returns greatest non-null `Double` value if it exists. Returns an empty optional if no such values exist.
 
 **Example**
+
 ```
 OptionalDouble max = new DoubleCollection(new List<Double>){1, 2, 3}).max(); // 3
 ```
@@ -35,6 +39,7 @@ OptionalDouble max = new DoubleCollection(new List<Double>){1, 2, 3}).max(); // 
 ## min
 
 **Signature**
+
 ```
 OptionalDouble min()
 ```
@@ -42,6 +47,7 @@ OptionalDouble min()
 Returns smallest non-null `Double` value if it exists. Returns an empty optional if no such values exist.
 
 **Example**
+
 ```
 OptionalDouble min = new DoubleCollection(new List<Double>){1, 2, 3}).min(); // 1
 ```
@@ -51,11 +57,13 @@ OptionalDouble min = new DoubleCollection(new List<Double>){1, 2, 3}).min(); // 
 Averages non-null `Double` values if they exist. Returns an empty optional if no such values exist.
 
 **Signature**
+
 ```
 OptionalDouble average()
 ```
 
 **Example**
+
 ```
 OptionalDouble average = new DoubleCollection(new List<Double>){1, 2, 3}).average(); // 2
 ```
